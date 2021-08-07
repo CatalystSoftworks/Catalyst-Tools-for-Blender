@@ -14,7 +14,7 @@ If you wish to contribute to the development of this addon, I've found that the 
 
 > If you're working on Windows, be aware that you may have issues with folder permissions when attempting to use the "Build and Start" feature from the "Blender Development" extension. Either change Blender to use your custom installation of `python` or edit the file permissions for Blender's application folder and subfolders to get around these issues.
 
-# Feature Set: Selection Operators
+## Feature Set: Selection Operators
 
 Menu: `Select`
 
@@ -27,7 +27,7 @@ A variety of new selection operators are now available. These _should_ all be av
 > - Ctrl: Performs a deselect instead of a selection.
 
 
-## Bone Selection
+### Bone Selection
 
 These selection operators are available when dealing with armatures in either the "Edit Armature" or "Pose" modes.
 
@@ -37,9 +37,9 @@ These selection operators are available when dealing with armatures in either th
 **Select Unreferenced Bones:** Selects all bones aren't referenced by any other bones. This means all bones that aren't a parent of another bone and that have no bone constraints (from within the same rig) targeting them. _This does not currently do a reference check for object constraints or bone constraints from other armatures!_
 **Select Root Deform Bones:** Selects all root bones (bones with no parents) that are set to deform the mesh.
 
-# Feature Set: Rigging Utilities
+## Feature Set: Rigging Utilities
 
-## Convert to Game Ready Rig
+### Convert to Game Ready Rig
 
 Menu: `Object / Convert To / Game Ready Rig`
 
@@ -56,15 +56,15 @@ With the duplicate in hand, you can solve engine specific issues, like multiple 
 
 > The operation will provide a warning if you have more than 1 root bone in the armature. This is important as game engines (like Unreal) won't accept armatures that have more than 1 root bone.
 
-# Feature Set: Mesh Utilities
+## Feature Set: Mesh Utilities
 
-## Copy + Separate Macro
+### Copy + Separate Macro
 
 Menu: `Mesh / Split / Copy + Separate`
 
 Performs a duplication of the current selection and separates it into its own mesh. This is functionally similar to pressing `Shift + D` followed by `P` and choosing "selection". Can be easily added to quick favorites or assigned to a hotkey (like `Shift + Ctrl + P`) to streamline this common operation.
 
-# Feature Set: Animation Utilities
+## Feature Set: Animation Utilities
 
 ### Add Cycles Modifier
 
