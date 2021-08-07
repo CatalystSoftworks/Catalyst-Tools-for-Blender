@@ -1,0 +1,26 @@
+{
+    "folders": [
+      {
+        "path": "."
+      },
+    ],
+    "settings": {
+      "javascript.preferences.quoteStyle": "double",
+      "blender.addon.reloadOnSave": true,
+      "python.linting.pylintEnabled": true,
+      "editor.tabSize": 4,
+      "editor.wordWrap": "off",
+      "editor.wordWrapColumn": 200,
+      "python.formatting.autopep8Args": [
+        "--max-line-length=200"
+      ],
+      "emmet.includeLanguages": {
+        "markdown": "html"
+      },
+    },
+    "extensions": {
+      "recommendations": [
+        "jacqueslucke.blender-development"
+      ]
+    }
+  }
