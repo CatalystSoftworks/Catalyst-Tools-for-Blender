@@ -56,6 +56,20 @@ With the duplicate in hand, you can solve engine specific issues, like multiple 
 
 > The operation will provide a warning if you have more than 1 root bone in the armature. This is important as game engines (like Unreal) won't accept armatures that have more than 1 root bone.
 
+## Feature Set: ID Mapper
+
+This feature set provides a set of utilties for quickly assigning vertex colors to the selected faces of mesh. This is done for the purpose of baking ID maps using programs like Substance Painter, Houdini, or even Blender.
+
+##### Supported / Planned Features
+
+- [x] Create ID map groups per object
+- [x] Assign created ID map groups to selected faces
+- [x] Removed created ID map groups
+    - [ ] Remove vertex color data when removing ID map groups
+- [ ] Select/Deselect faces using ID map groups
+- [ ] (Almost done) Assign a material for displaying the current ID map colors outside of vertex color mode
+- [ ] 1-click quick-bake ID maps inside of Blender
+
 ## Feature Set: Mesh Utilities
 
 ### Copy + Separate Macro
