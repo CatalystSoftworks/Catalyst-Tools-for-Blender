@@ -2,7 +2,7 @@
 
 This is an addon for Blender 2.93+ that contains a collection of utilities that Catalyst has found useful when creating models, rigs, and animations in Blender - particularly for games.
 
-> **Note from Nick Glenn:** This addon effectively encompasses work I did in several smaller add ons for Blender over the past few years. Managing multiple, smaller projects started to become a real hassle to maintain rather than just collecting them all in a single large project. This means that many of my smaller addons may get merged into this one (or my [Command Config addon](https://github.com/NickGlenn/Command-Config-for-Blender)) moving forward.
+> **Note from [Nick Glenn](https://github.com/nickglenn):** This addon effectively encompasses work I did in several smaller add ons for Blender over the past few years. Managing multiple, smaller projects started to become a real hassle to maintain rather than just collecting them all in a single large project. This means that many of my smaller addons may get merged into this one (or my [Command Config addon](https://github.com/NickGlenn/Command-Config-for-Blender)) moving forward.
 
 ## Installation
 
