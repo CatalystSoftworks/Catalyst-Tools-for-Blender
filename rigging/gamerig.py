@@ -49,7 +49,8 @@ class ConvertToGameRig(bpy.types.Operator):
                 pb = def_obj.pose.bones.get(b.name)
                 pb.custom_shape = None
 
-                pb.constraints.clear()
+                for c in pb.constraints:
+                    pb.constraints.remove(c)
 
                 c: bpy.types.CopyTransformsConstraint = pb.constraints.new(type="COPY_TRANSFORMS")
                 c.target = src_obj
