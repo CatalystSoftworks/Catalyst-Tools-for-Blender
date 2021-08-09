@@ -78,3 +78,7 @@ Copies the settings from the active channel's noise modifiers and adds it as a n
 ### Remove F-Curve Modifiers
 
 Removes all F-Curve modifiers from the selected channels.
+
+### Remove Empty Vertex Groups
+
+Removes all vertex groups for the active, selected mesh that have no vertices weighted to them. Useful for cleaning up meshes that were parented to armatures, but have many vertex groups (per bone) that have nothing assigned to them.
