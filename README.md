@@ -14,11 +14,13 @@ If you wish to contribute to the development of this addon, I've found that the 
 
 > If you're working on Windows, be aware that you may have issues with folder permissions when attempting to use the "Build and Start" feature from the "Blender Development" extension. Either change Blender to use your custom installation of `python` or edit the file permissions for Blender's application folder and subfolders to get around these issues.
 
-## Feature Set: Selection Operators
+## Features
+
+### New Armature Selection Operators
 
 Menu: `Select`
 
-A variety of new selection operators are now available. These _should_ all be available from the "select" menu for the various object modes and may be specific to different types of objects (like meshes, armatures, etc).
+A variety of new selection operators are now available. These selection operators are available when dealing with armatures in either the "Edit Armature" or "Pose" modes.
 
 > **Note:** Many of these selection operators support alternate modes when activated with alt, shift, or control held. The common pattern used for this "power-user" functionality is as follows...
 >
@@ -27,58 +29,35 @@ A variety of new selection operators are now available. These _should_ all be av
 > - Ctrl: Performs a deselect instead of a selection.
 
 
-### Bone Selection
-
-These selection operators are available when dealing with armatures in either the "Edit Armature" or "Pose" modes.
-
 **Select Deform Bones:** Selects all bones that are currently marked as deform bones.
 **Select Bones with Constraints:** Selects all bones that have at least 1 bone constraint in pose mode.
 **Select Orphan Bones:** Selects all bones that have no parent assigned. _This will often result in the selection of root bones._
 **Select Unreferenced Bones:** Selects all bones aren't referenced by any other bones. This means all bones that aren't a parent of another bone and that have no bone constraints (from within the same rig) targeting them. _This does not currently do a reference check for object constraints or bone constraints from other armatures!_
 **Select Root Deform Bones:** Selects all root bones (bones with no parents) that are set to deform the mesh.
 
-## Feature Set: Rigging Utilities
-
 ### Convert to Game Ready Rig
 
 Menu: `Object / Convert To / Game Ready Rig`
 
-This feature is intended to assist with conversions of third-party armatures that are not set up correctly for game engines. It does this by creating a duplicate of the selected armature and performing the following operations on the duplicate:
+This feature is intended to assist with conversions of third-party armatures that are not set up correctly for game engines. It does this by creating a duplicate of all deformation bones in the armature (and assigning them to layer 32). Then it prefixes the source bone's name with `TGT_` (for _target_) and adds a "Copy Transforms" bone constraint on each deformation bone that points to the related `TGT_` bone.
 
-1. Removes all non-deforming bones
-1. Removing all bone constraints and custom shapes on the remaining deform bones
-1. Disables "Bendy Bones" by setting the bendy bone segments to `1`
-1. Ensuring that local rotation, inherit rotation, and inherit scale are enabled
-1. Adds a "Copy Transforms" bone constraint for each bone in the duplicate that points to the related bone in the original armature
-1. Reparents any meshes that used the control rig's armature to the new game ready duplicate
+Now you can solve engine bone hierarchy issues on the deformation bones while retaining the rig's animations and fuctionality.
 
-With the duplicate in hand, you can solve engine specific issues, like multiple root bones or incorrect bone hierarchy, while preserving the original functionality of the control rig.
+> This operation requires that layer 32 be empty and will provide a non-fatal warning if you have more than 1 root bone in the armature. This is important as some game engines (like Unreal) won't accept armatures that have more than 1 root bone.
 
-> The operation will provide a warning if you have more than 1 root bone in the armature. This is important as game engines (like Unreal) won't accept armatures that have more than 1 root bone.
-
-## Feature Set: ID Mapper
+### ID Mapper
 
 This feature set provides a set of utilties for quickly assigning vertex colors to the selected faces of mesh. This is done for the purpose of baking ID maps using programs like Substance Painter, Houdini, or even Blender.
 
-##### Supported / Planned Features
+When editing a mesh, you can select one or more faces and use the "ID Mapper" submenu found within the "Mesh Context Menu" (the right click menu by default). You can use the "New Group" option to create a new ID group with the given name and a random color. Once a group has been added, it will appear in the "ID Mapper" submenu where "New Group" could be found before, allowing you to assign more faces to it.
 
-- [x] Create ID map groups per object
-- [x] Assign created ID map groups to selected faces
-- [x] Removed created ID map groups
-    - [ ] Remove vertex color data when removing ID map groups
-- [ ] Select/Deselect faces using ID map groups
-- [ ] (Almost done) Assign a material for displaying the current ID map colors outside of vertex color mode
-- [ ] 1-click quick-bake ID maps inside of Blender
-
-## Feature Set: Mesh Utilities
+Additionally, if you want to manage your ID groups in a similar way to something like "Vertex Groups", you can find the "ID Map Groups" section underneath the "Object Data Properties" panel.
 
 ### Copy + Separate Macro
 
 Menu: `Mesh / Split / Copy + Separate`
 
 Performs a duplication of the current selection and separates it into its own mesh. This is functionally similar to pressing `Shift + D` followed by `P` and choosing "selection". Can be easily added to quick favorites or assigned to a hotkey (like `Shift + Ctrl + P`) to streamline this common operation.
-
-## Feature Set: Animation Utilities
 
 ### Add Cycles Modifier
 
